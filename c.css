@@ -1,0 +1,33 @@
+.txe{
+		width:310px;
+		height:460px;
+		background:#622589;
+		border:5px solid #DC7DFC;
+		margin-left:2px;
+	}
+	
+	.screen{
+		bacground:#F8E6FC;
+		width:90%;
+		height:55px;
+		font-size:45px;
+		margin:20px;
+		text-align:right;
+		margin-left:2px;
+		margin-right:2px;
+	}
+	
+	.hr{
+		margin:0px
+		}
+		
+	.b{
+		padding:5px;
+		height:50px;
+		width:70px;
+		background:#F5EFF7;
+		font-size:35px;
+		margin-bottom:2px
+		margin-left:1px
+		
+	}

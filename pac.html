@@ -1,0 +1,28 @@
+<script>
+
+
+function series()
+{
+x = document.getElementById('a').value;
+str = "";
+	for(i = 1; i<= x; i++)
+	{
+	str = str + "All number is: " + i + "<br>";
+	//document.write("All number is: " + i + "<br>");
+	//document.getElementById('c').innerHTML += str;
+	}
+	//alert('str');
+	document.getElementById('c').innerHTML = str;
+}
+</script>
+enter the value:
+<input type="text" id="a" name="a"/><br>
+
+
+<input type = "button" id = "b" name = "b" onclick ='series()' value = "Click Me" /><br>
+
+<p id = 'c'>result</p>
+
+
+
+

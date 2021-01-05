@@ -1,0 +1,18 @@
+<script>
+N = parseInt(prompt('Enter a number'));
+         s = 0;
+         x = N;
+	for( ; ; )
+{
+	 r = N % 10;
+	 s = s + r * r * r;
+	 N =parseInt( N / 10 );
+	 if(N ==0)
+	 break;
+}
+if (x == s)
+
+        document.write(x+"is armstrong number");
+else
+		document.write(x+"is not armstorng number");
+</script>

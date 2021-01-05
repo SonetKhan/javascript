@@ -1,0 +1,39 @@
+<script>
+function maxTwo(x,y)
+{
+	return(x > y ? x : y);
+}
+function odd(q)
+{
+	return(q % 2 == 1 ? q : 0);
+}
+//document.write(maxTwo(10,20));
+//document.write(" : is greater number<hr>");
+
+a = parseInt(prompt('Enter your first number: '));
+//b = parseInt(prompt('Enter your second number: '));
+//c = parseInt(prompt('Enter your third number: '));
+//d = parseInt(prompt('Enter your fourth number: '));
+//e = parseInt(prompt('Enter your fifth number: '));
+
+//document.write(maxTwo(maxTwo(maxTwo(a,b),maxTwo(c,d)),e));
+//document.write(" : is greater number");
+function prime(w)
+{
+	for( j = 2 ; j <= parseInt(w/2); j++)
+	{
+	if(w % j == 0)return(0);
+	}
+	return(w);
+}
+if(prime(a))
+alert('your given number is prime: '+a);
+else
+alert('your given number is not prime: '+a);
+		for(i = 1; i <= 100; i++)
+{
+		if(prime(i))
+		document.write(" <br> your given number is prime: "+i);
+
+}	
+</script>

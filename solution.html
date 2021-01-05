@@ -1,0 +1,26 @@
+<script>
+function test()
+{
+		x = document.getElementById('a').value;
+		document.getElementById('b').value = x;
+		y = document.getElementById('e').innerHTML;
+		document.getElementById('c').value = y;
+		document.getElementById('f').innerHTML = y;
+		document.getElementById('e').innerHTML = "your number is: " +x;
+		var str = "";
+		for(i = 1; i <= x; i++)
+		{
+		str += "<input type = 'button' value = '"+i"' onclick = 'alert("+i")'/>";
+		}
+		document.getElementById('h).innerHTML = str;
+}		
+</script>
+<input type = "text" id = "a" name = "a"/><br>
+<input type = "text" id = "b" name = "b"/><br>
+<input type = "text" id = "c" name = "c"/><br>
+<input type = "button" id = "d" name = "d" onclick = 'test()' value = "click me"/><br>
+<p id = "e">Hello <b>W</b>orld</p>
+<table border="5">
+<tr><td id="f">I am here</td></tr>
+</table>
+<p id = "h">go</p>

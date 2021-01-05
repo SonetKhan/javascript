@@ -1,0 +1,39 @@
+<script>
+n = parseInt(prompt('Enter a number: '));
+function Armstrong(x)	
+	{
+		temp=x;
+		z=0;
+		for(;x >0 ; x=parseInt(x/10))
+		{
+			a=x%10;
+			z+= a*a*a;
+		}
+		return( temp == z ? temp : 0 );
+	}
+	
+	alert(Armstrong(n));
+function Allarmstrong()
+{
+		for(i = 1; i <= n; i ++)
+		{
+		if(Armstrong(i))
+		document.write("<br>All armstrong upto" +n +" is :" +i);
+		}
+
+}
+Allarmstrong(n);
+function TotalAramstrong()
+{
+		for(j = 1; ; j++)
+		{
+		document.write("<br> Number of Armstrong : "+j);
+		j++;
+		}
+		if(j == n)
+		break;
+}
+TotalAramstrong(n);
+	
+
+</script>

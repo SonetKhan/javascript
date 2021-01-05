@@ -1,0 +1,17 @@
+<script>
+N = parseInt(prompt('Enter a number'));
+zerocount = 0;
+		for(x = 2; x <= N / 2; x = x + 1)
+{
+	if(N % x == 0)
+	zerocount = zerocount + 1;
+}
+		if(zerocount >= 1)
+{
+		document.write(N+" is not prime");
+}
+else
+{
+		document.write(N+"is prime");
+}
+</script>

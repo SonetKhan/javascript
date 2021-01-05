@@ -1,0 +1,52 @@
+<script>
+var num = 0;
+var num2 = 0;
+var opt = '';
+function NumberGenerate(n)
+{
+	temp = parseFloat(document.getElementById('a').value);
+	if(temp == 0 && n > 0 ) document.getElementById('a').value='';
+	if(temp > 0 || n > 0) document.getElementById('a').value += n;
+}
+function Clear()
+{
+	document.getElementById('a').value = '0';	
+}
+function Operator(op)
+{
+num = parseFloat(document.getElementById('a').value);
+	Clear();
+	opt = op;
+}
+function Evaluate()
+{
+	num2 = parseFloat(document.getElementById('a').value);
+	if(opt == '+')  z = num + num2;
+	if(opt == '-')  z = num - num2;
+	if(opt == '*')  z = num * num2;
+	if(opt == '/')  z = num / num2;
+	if(opt == '%')  z = num % num2;
+	document.getElementById('a').value = z;
+	num = num2 = 0;
+}
+</script>
+<input type = "text" id = "a" name = "a"  /><br>
+<input type = "button" id = "b" name = "b" value = "1" onclick ="NumberGenerate(1)" />
+<input type = "button" id = "c" name = "c" value = "2" onclick ="NumberGenerate(2)" />
+<input type = "button" id = "d" name = "d" value = "3" onclick ="NumberGenerate(3)" />
+<input type = "button" id = "e" name = "f" value = "+" onclick ="Operator('+')" /><br>
+<input type = "button" id = "f" name = "f" value = "4" onclick ="NumberGenerate(4)"/>
+<input type = "button" id = "g" name = "g" value = "5" onclick ="NumberGenerate(5)" />
+<input type = "button" id = "h" name = "h" value = "6" onclick ="NumberGenerate(6)"/>
+<input type = "button" id = "i" name = "i" value = "-" onclick ="Operator(-)"/><br>
+<input type = "button" id = "j" name = "j" value = "7" onclick ="NumberGenerate(7)"/>
+<input type = "button" id = "k" name = "k" value = "8" onclick ="NumberGenerate(8)"/>
+<input type = "button" id = "l" name = "l" value = "9" onclick ="NumberGenerate(9)"/>
+<input type = "button" id = "m" name = "m" value = "*" onclick ="Operator('*')"/><br>
+<input type = "button" id = "n" name = "n" value = "/" onclick ="Operator('/')"/>
+<input type = "button" id = "o" name = "o" value = "%" onclick ="Operator('%')"/>
+<input type = "button" id = "p" name = "p" value = "C" onclick ="Clear()"/>
+<input type = "button" id = "q" name = "q" value = "0" onclick ="NumberGenerate(0)"/>
+<input type = "button" id = "r" name = "r" value = "=" onclick ="Evaluate()"/>
+
+

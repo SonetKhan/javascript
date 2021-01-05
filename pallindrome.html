@@ -1,0 +1,19 @@
+<script>
+N = parseInt(prompt('Enter a number'));
+x = N;
+y = 0;
+		for( ; N != 0; N =parseInt( N / 10))
+{
+		r = N % 10;
+		y = y * 10 + r;
+}
+	if(y == x)
+{
+		document.write(x+"is pallindrome");
+
+}
+else
+{
+		document.write(x+"is not pallindrome");
+}
+</script>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<title>Calculator</title>
+		<link rel="stylesheet" href="c.css">
+		
+		
+		<script>
+		var num = 0;
+		var num2 = 0;
+		var opt = "";
+		function NumberGenerate(n)
+		{
+			temp=parseFloat(document.getElementById('sc').value);
+			if(temp == 0 && n > 0 ) document.getElementById('sc').value='';
+			if(temp > 0 || n > 0) document.getElementById('sc').value +=n;
+		}
+		function Clear()
+		{
+			document.getElementById('sc').value ='0';
+		}
+		function Operator(op)
+		{
+			num=parseFloat(document.getElementById('sc').value);
+			Clear();
+			opt=op;
+		}
+		function Evelaute()
+		{
+			num2=parseFloat(document.getElementById('sc').value);
+			//if(opt == '+')	z=num+num2;
+			//if(opt == '-')	z=num-num2;
+			//if(opt == '*')	z=num*num2;
+			//if(opt == '/')	z=num/num2;
+			z=eval(num + opt + num2);
+			//eval("alert('hello world')");
+			
+			document.getElementById('sc').value=z;
+			num = num2 = 0;
+		}
+		</script>
+	
+	</head>
+	
+	
+	<body>
+		<center>
+		<form name="calculator" action="" class="txe">
+		
+			<input type="text" id="sc" name="screen" disabled class="screen" value="0" />
+			<hr class="hr"/>
+			
+			<br>
+			<input type="button" id="a1" name="btn1" value="1" class="b" onclick="NumberGenerate(1)"/>
+			<input type="button" id="a2" name="btn2" value="2" class="b" onclick="NumberGenerate(2)"/>
+			<input type="button" id="a3" name="btn3" value="3" class="b" onclick="NumberGenerate(3)"/>
+			<input type="button" id="a4" name="plus" value="+" class="b" onclick="Operator('+')"/>
+			</br>
+			
+			<br>
+			<input type="button" id="a5" name="btn4" value="4" class="b"  onclick="NumberGenerate(4)"/>
+			<input type="button" id="a6" name="btn5" value="5" class="b"  onclick="NumberGenerate(5)"/>
+			<input type="button" id="a7" name="btn6" value="6" class="b"  onclick="NumberGenerate(6)"/>
+			<input type="button" id="a8" name="sub"  value="-" class="b" onclick="Operator('-')" />
+			</br>
+			
+			<br>
+			<input type="button" id="a9"  name="btn7" value="7" class="b" onclick="NumberGenerate(7)"/>
+			<input type="button" id="a10" name="btn8" value="8" class="b" onclick="NumberGenerate(8)"/>
+			<input type="button" id="a11" name="btn9" value="9" class="b" onclick="NumberGenerate(9)"/>
+			<input type="button" id="a12" name="mul"  value="*" class="b" onclick="Operator('*')"/>
+			</br>
+			
+			<br>
+			<input type="button" id="a13" name="zero"  value="0" class="b" onclick="NumberGenerate(0)"/>
+			<input type="button" id="a14" name="btn10" value="%" class="b" />
+			<input type="button" id="a15" name="btn11" value="." class="b" />
+			<input type="button" id="a16" name="mul"   value="/" class="b" onclick="Operator('/')"/>
+			</br>
+			
+			<br>
+			<input type="button" id="a17" name="clear"     value="C" class="b" onclick="Clear()" />
+			<input type="button" id="a18" name="backspace" value="←" class="b" />
+			<input type="button" id="a19" name="root"      value="√" class="b" />
+			<input type="button" id="a20" name="equal"     value="=" class="b" onclick="Evelaute()"/>
+			</br>
+			
+		</form>
+		
+		</center>
+	</body>
+	
+</html>
