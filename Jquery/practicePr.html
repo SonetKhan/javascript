@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>PR && PO && GR Generate</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="pr-container">
+      <div class="card">
+        <div class="card-header">
+          Add Pr
+
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>PR Number</th>
+                <th>PR Details</th>
+                <th>PR Amount</th>
+                <th><button type="button" class="btn btn-primary pr_row_add">+Add</button></th>
+              </tr>
+            </thead>
+            <tbody class="tbody-pr">
+              <tr>
+                <td><input type="text" class="form-control pr_number" name="pr_number"></td>
+                <td><input type="text" class="form-control pr_details" name="pr_details"></td>
+                <td><input type="text" class="form-control pr_amount" name="pr_amount"></td>
+                <td><button type="button" class="btn btn-danger pr_row_delete">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-primary float-right po_generate_button">PO Generate</button>
+
+        </div>
+        <div class="card-footer"></div>
+      </div>
+    </div>
+    <div class="po_container">
+
+    </div>
+    <div class="go-container">
+
+    </div>
+  </div>
+
+  <script>
+    function calculate(getValue) {
+            let total = 0;
+            $(getValue).each(function () {
+                const balance = $(this).val();
+                const balanceNumber = parseFloat(balance);
+                total += balanceNumber;
+                
+            });
+            return total;
+        }
+    //..###### Adding PR
+    $(document).on('click', '.pr_row_add', function () {
+      const html = ` <tr>
+                    <td><input type="text" class="form-control pr_number" name="pr_number"></td>
+                    <td><input type="text" class="form-control pr_details" name="pr_details"></td>
+                    <td><input type="text" class="form-control pr_amount" name="pr_amount"></td>
+                    <td><button type="button" class="btn btn-danger pr_row_delete">Delete</button></td>
+                  </tr>`;
+      $(document).find(".tbody-pr").append(html);
+    });
+
+    $(document).on('click', '.pr_row_delete', function () {
+
+      $(this).closest('tr').remove();
+
+    });
+
+
+    // ..####Adding PO against Each Pr
+    $(document).on('click', '.po_generate_button', function () {
+       //console.log("clicked");
+      let po_html = '';
+      $('.pr_number').each(function () {
+        const prNumber = $('.pr_number').val();
+        
+        po_html += `<div class="card">
+        <div class="card-header">
+            Add Po
+
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>PO Number</th>
+                    <th>PO Details</th>
+                    <th>PO Amount</th>
+                    <th><button type="button" class="btn btn-primary po_row_add">+Add</button></th>
+                  </tr>
+                </thead>
+                <tbody class="tbody-po">
+                  <tr>
+                    <td><input type="text" class="form-control po_number" name="po_number"></td>
+                    <td><input type="text" class="form-control po_details" name="po_details"></td>
+                    <td><input type="text" class="form-control po_amount" name="po_amount"></td>
+                    <td><button type="button" class="btn btn-danger po_row_delete">Delete</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <button type="button" class="btn btn-primary float-right go_generate_button">GO Generate</button>
+
+        </div> 
+        <div class="card-footer"></div>`;
+      });
+      $('.po_container').html(po_html);
+        let pr_result =calculate('.pr_number');
+    });
+    $(document).on('click', '.po_row_add', function () {
+      let pr_result =calculate('.pr_number');
+      let po_result = calculate('.po_number');
+      console.log(po_result);
+      if(pr_result > po_result){
+        const html = ` <tr>
+                    <td><input type="text" class="form-control po_number" name="po_number"></td>
+                    <td><input type="text" class="form-control po_details" name="po_details"></td>
+                    <td><input type="text" class="form-control po_amount" name="po_amount"></td>
+                    <td><button type="button" class="btn btn-danger po_row_delete">Delete</button></td>
+                  </tr>`;
+      $(document).find(".tbody-po").append(html);
+
+      }
+      else{
+        alert('Po amount is greater then Pr amount');
+      }
+    
+
+    });
+    $(document).on('click', '.po_row_delete', function () {
+      $(this).closest('tr').remove();
+    });
+
+
+    //#### Adding Go against each Po
+    $(document).on('click', '.go_generate_button', function () {
+      let go_html = "";
+      const go_number = $('.po_number').val();
+      $('.po_number').each(function () {
+
+        go_html += `<div class="card">
+        <div class="card-header">
+            Add Go
+
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>GO Number</th>
+                    <th>GO Details</th>
+                    <th>GO Amount</th>
+                    <th><button type="button" class="btn btn-primary go_row_add">+Add</button></th>
+                  </tr>
+                </thead>
+                <tbody class="tbody-go">
+                  <tr>
+                    <td><input type="text" class="form-control go_number" name="go_number"></td>
+                    <td><input type="text" class="form-control go_details" name="go_details"></td>
+                    <td><input type="text" class="form-control go_amount" name="go_amount"></td>
+                    <td><button type="button" class="btn btn-danger go_row_delete">Delete</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <button type="button" class="btn btn-primary float-right go_generate_button">GO Generate</button>
+
+        </div> 
+        <div class="card-footer"></div>`;
+      });
+
+      $('.go-container').html(go_html);
+    
+    });
+    $(document).on('click', '.go_row_add', function () {
+      let po_result =calculate('.po_number');
+      let go_result = calculate('.go_number');
+      if( go_result < po_result){
+        const html = ` <tr>
+                    <td><input type="text" class="form-control po_number" name="po_number"></td>
+                    <td><input type="text" class="form-control po_details" name="po_details"></td>
+                    <td><input type="text" class="form-control po_amount" name="po_amount"></td>
+                    <td><button type="button" class="btn btn-danger go_row_delete">Delete</button></td>
+                  </tr>`;
+      $(document).find(".tbody-go").append(html);
+
+      }
+      else{
+        alert ('Go result is greater then Po result');
+      }
+      
+
+    });
+    $(document).on('click', '.go_row_delete', function () {
+      $(this).closest('tr').remove();
+    });
+    
+  </script>
+</body>
+
+</html>

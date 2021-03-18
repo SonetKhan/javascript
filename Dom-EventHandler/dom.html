@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Explore</title>
+    <style>
+        article{
+
+            border: 2px solid tomato;
+            border-radius: 20px;
+            margin: 5px;
+            padding: 5px;
+        }
+        .special h3{
+
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <h2>Exploring Dom</h2>
+            <article>
+                <h3>article->1</h3>
+                <p class="author">author-1</p>
+                <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, eveniet quae facilis, dolor aut doloremque necessitatibus eaque quia sequi iusto vel, optio sit! Magnam dolor enim ex nulla praesentium quod.</p>
+            </article>
+            <article class="special">
+                <h3>article->2</h3>
+                <p class="author">author-2</p>
+                <p class="description">Sunt amet numquam quas pariatur, minus natus voluptatem mollitia non assumenda consequatur maiores corrupti ut molestiae temporibus nobis laboriosam! Ut maxime id debitis at. Numquam quisquam mollitia est cum dicta!</p>
+            </article>
+            <article class="special">
+                <h3>article->3</h3>
+                <p class="author">author-3</p>
+                <p class="description">Suscipit impedit error exercitationem mollitia odio voluptas! Doloremque aliquam minima sit repellendus laboriosam accusamus ipsum sint molestiae magni possimus labore quis, dolorem sed eaque non veniam! Quae aspernatur laudantium pariatur.</p>
+            </article>
+        </section>
+    </main>
+    <script>
+         var authors = document.querySelectorAll('.special h3');
+             for(var i = 0; i < authors.length; i++){
+            var element = authors[i];
+            
+            console.log(element);
+
+            console.log(element.innerHTML);
+            
+         element.style.backgroundColor="lightblue";
+            element.style.margin = " 5px";
+
+         }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Countries Api</title>
+</head>
+<body>
+    <h2>All countries Name</h2>
+    <ul id="countryList">
+
+    </ul>
+    <table>
+        <thead>
+            <th>Country Name</th>
+            <th>Country Flag</th>
+        </thead>
+        <tbody class="tbody">
+
+
+        </tbody>
+    </table>
+    <script>
+         fetch('https://restcountries.eu/rest/v2/all')
+        .then(response => response.json())
+        .then (data=>{
+            //console.log(data[0].name);
+            displayCountryName(data);
+        });
+    function displayCountryName(data){
+       const tbody = document.getElementsByClassName('tbody');
+       
+
+        for (let i = 0; i < data.length; i++) {
+            const name = data[i].name;
+            const flagLink = data[i].flag;
+            // console.log(name);
+            // console.log(flagLink);
+            const tr = document.createElement('tr');
+                tr.innerHTML =name ;
+                tbody.appendChild(tr);
+                
+            
+
+            
+        }
+    }
+
+    </script>
+   </body>
+</html>

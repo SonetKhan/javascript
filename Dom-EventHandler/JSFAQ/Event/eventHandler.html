@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Company</title>
+</head>
+<body>
+    <button>click</button>
+    <button id="secondButton">click me</button>
+    <h3 id="heading">added event listener in different different way.</h3>
+    <!-- <button onclick="eventHandler()">click me</button> -->
+    <script>
+        
+    // var element = document.querySelector('button'); //....First way........
+    // console.log(element);
+    // element.onclick = function(){
+    //     document.body.style.backgroundColor = "yellow";
+    // };
+    // function eventHandler(){
+    //     console.log("Where are you brother.");
+    // }
+    // var btn =document.getElementById('secondButton'); ///.....second way.....
+    // console.log(btn);
+    // btn.addEventListener('click',eventHandler);
+    document.getElementById('secondButton').addEventListener('click',function(){
+       
+    document.body.style.backgroundColor = "tomato";
+    });
+    </script>
+</body>
+</html>

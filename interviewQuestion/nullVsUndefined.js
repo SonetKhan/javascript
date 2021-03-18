@@ -1,0 +1,9 @@
+function add(num1,num2){
+console.log(num1 + num2);
+////// undefined ### because i did not return here anything.....
+}
+// const result = add(13,15);
+// console.log(result);
+//add(13,15);### IN this way it is not undefined...
+//add(13);NaN
+// #### NUll is when null is set.....

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to load Data dynamically</title>
+</head>
+<body>
+    <ul id="user-data">
+
+    </ul>
+    <script>
+                fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(json => displayUsers(json))
+        .catch(error=>console.log(error))
+       
+        function displayUsers(users){
+            //console.log("users:",users);
+            const userNames = users.map(user=>user.username);
+            const userData = document.getElementById('user-data');
+            for (let i = 0; i < userNames.length; i++) {
+                const element =userNames[i];
+               
+               const li = document.createElement('li');
+               li.innerText = element;
+               userData.appendChild(li);
+                
+                
+            }
+        }
+        
+    </script>
+</body>
+</html>

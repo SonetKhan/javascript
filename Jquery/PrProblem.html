@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jquery problem</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="pr_container">
+                <div class="card"  style="margin-top: 30px;">
+                    <div class="card-header">
+                        Add PR
+                    </div>
+                    <div class="card-body">
+                        <table class="table pr_table">
+                            <thead>
+                            <tr>
+                                <th>PR Number</th>
+                                <th>PR Details</th>
+                                <th>PR Amount</th>
+                                <th><button type="button" class="btn btn-primary pr_row_add">+ Add</button></th>
+                            </tr>
+                            </thead>
+                            <tbody class="pr_tbody">
+                            <tr>
+                                <td><input name="pr_number" class="form-control pr_number"></td>
+                                <td><input name="pr_details" class="form-control"></td>
+                                <td><input name="pr_amount" class="form-control"></td>
+                                <td><button type="button" class="btn btn-danger pr_row_delete">Delete</button></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-primary po_generate_btn float-right">PO Generate</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- po section-->
+            <div class="po_container">
+
+            </div>
+        </div>
+    </div>
+    <script>
+
+        $(document).on('click','.pr_row_add',function (){
+            var html= '<tr>\n' +
+                '                            <td><input name="pr_number" class="form-control pr_number"></td>\n' +
+                '                            <td><input name="pr_details" class="form-control"></td>\n' +
+                '                            <td><input name="pr_amount" class="form-control"></td>\n' +
+                '                            <td><button type="button" class="btn btn-danger pr_row_delete">Delete</button></td>\n' +
+                '                        </tr>';
+
+            $(document).find('.pr_tbody').after(html);
+            html = '';
+        });
+
+        $(document).on('click','.pr_row_delete',function (){
+            $(this).closest('tr').remove();
+        });
+
+        $(document).on('click', '.po_generate_btn', function () {
+            var po_html = '';
+            $('.pr_number').each(function (){
+                var pr_number = $(this).val();
+                po_html += '<div class="card" style="margin-top: 10px;">\n' +
+                    '                    <div class="card-header">\n' +
+                    '                        Add PO of PR#'+pr_number+'\n' +
+                    '                    </div>\n' +
+                    '                    <div class="card-body">\n' +
+                    '                        <table class="table table-striped">\n' +
+                    '                            <thead>\n' +
+                    '                            <tr>\n' +
+                    '                                <th>PO numbers</th>\n' +
+                    '                                <th>PO details</th>\n' +
+                    '                                <th>PO amount</th>\n' +
+                    '                                <th><button type="button" class="btn btn-success add_row_po" >+ Add</button></th>\n' +
+                    '                            </tr>\n' +
+                    '                            </thead>\n' +
+                    '                            <tbody class="product_tbody">\n' +
+                    '                            <tr>\n' +
+                    '                                <td><input type="text" class="form-control po_number" name=""></td>\n' +
+                    '                                <td><input type="text" class="form-control" name=""></td>\n' +
+                    '                                <td><input type="text" class="form-control" name=""></td>\n' +
+                    '                                <th><button type="button" class="btn btn-danger po_row_delete" >Delete</button></th>\n' +
+                    '                            </tr>\n' +
+                    '                            </tbody>\n' +
+                    '                        </table>\n' +
+                    '                    </div>\n' +
+                    '                </div>';
+            });
+            var html = '<div class="card"  style="margin-top: 10px;">\n' +
+                '                    <div class="card-header">\n' +
+                '                        Add PO\n' +
+                '                    </div>\n' +
+                '                    <div class="card-body">\n' +po_html+
+                '                        <button type="button" class="btn btn-primary po_generate_btn float-right" style="margin-top: 10px;">GR Generate</button>\n' +
+                '                    </div>\n' +
+                '                </div>';
+
+
+            $('.po_container').html(html);
+        });
+
+
+    </script>
+</body>
+</html>
